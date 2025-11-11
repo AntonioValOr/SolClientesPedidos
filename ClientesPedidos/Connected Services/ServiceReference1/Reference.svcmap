@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="ce635815-b2e8-4afc-96b6-a86ac17d3826" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63453/ServicePedidos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicePedidos.xsd" MetadataType="Schema" ID="b3216eb4-9eb1-43e9-9572-a49bea3acc40" SourceId="1" SourceUrl="http://localhost:63453/ServicePedidos.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicePedidos1.xsd" MetadataType="Schema" ID="2b42177b-7383-4244-ae2d-4ee7e6e0df1b" SourceId="1" SourceUrl="http://localhost:63453/ServicePedidos.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicePedidos2.xsd" MetadataType="Schema" ID="1cfb1c3d-3930-410b-bf2d-6205afddb2bb" SourceId="1" SourceUrl="http://localhost:63453/ServicePedidos.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicePedidos.wsdl" MetadataType="Wsdl" ID="bab9a2e8-f75b-4b47-9347-d812bf499edb" SourceId="1" SourceUrl="http://localhost:63453/ServicePedidos.svc?wsdl" />
+    <MetadataFile FileName="ServicePedidos.disco" MetadataType="Disco" ID="d960df19-e54d-4ab4-a0c1-cfaa876bd3e2" SourceId="1" SourceUrl="http://localhost:63453/ServicePedidos.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ClientesPedidos.ServiceReference1.PedidosEx>
+
+@{
+    ViewBag.Title = "Pedidos";
+}
+
+<div class="container">
+    <div class="page-header">
+        <h2 class="text-primary">
+            <span class="glyphicon glyphicon-list-alt"></span> Lista de Pedidos
+        </h2>
+    </div>
+
+    <p>
+        @Html.ActionLink("Crear Nuevo", "Agregar", null, new { @class = "btn btn-primary" })
+    </p>
+
+    @using (Html.BeginForm("Buscar", "Home", FormMethod.Get))
+    {
+        <div class="form-inline" style="margin-bottom: 15px;">
+            <div class="form-group">
+                <input type="text" name="texto" class="form-control" placeholder="Buscar por cliente o descripción..." style="width: 280px;" />
+            </div>
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-search"></span> Buscar
+            </button>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-default">
+                <span class="glyphicon glyphicon-refresh"></span> Limpiar
+            </a>
+        </div>
+    }
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead style="background-color: #337ab7; color: white;">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.IdP)</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.FechaPedido)</th>
+                <th>@Html.DisplayNameFor(model => model.Nota)</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdP)</td>
+                        <td>
+                           
+                            @Html.DisplayFor(modelItem =>item.ClientesEx.Nombre)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem =>item.ProdEx.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaPedido)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nota)</td>
+                        <td class="text-center" style="white-space: nowrap;">
+                            @Html.ActionLink("Editar", "Editar", new { id = item.IdP }, new { @class = "btn btn-warning btn-sm" })
+                            @Html.Raw("&nbsp;")
+                            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdP }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No se encontraron pedidos.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

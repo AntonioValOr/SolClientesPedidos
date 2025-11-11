@@ -1,0 +1,83 @@
+﻿@model ClientesPedidos.ServiceReference1.PedidosEx
+
+@{
+    ViewBag.Title = "Editar Pedido";
+}
+
+<div class="container" style="max-width: 700px; margin-top: 40px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center">
+            <h3 class="panel-title" style="font-size: 22px;">Editar Pedido</h3>
+        </div>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("EditarPost", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientesId, "Cliente", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.ClientesId,
+                        (SelectList)ViewBag.Clientes,
+                        "-- Seleccione un cliente --",
+                        new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ClientesId, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductosId, "Producto", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.ProductosId,
+                        (SelectList)ViewBag.Produc,
+                        "-- Seleccione un producto --",
+                        new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ProductosId, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control", placeholder = "Descripción del pedido" })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FechaPedido, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.FechaPedido, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                    @Html.ValidationMessageFor(model => model.FechaPedido, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IdP, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.IdP, new { @class = "form-control", @readonly = "readonly" })
+                    <span class="help-block text-muted">Este campo no se puede modificar.</span>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nota, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Nota, new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.Nota, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="text-right">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-default">
+                        <i class="glyphicon glyphicon-chevron-left"></i> Volver
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="glyphicon glyphicon-floppy-disk"></i> Guardar Cambios
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
